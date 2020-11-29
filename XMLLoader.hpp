@@ -24,27 +24,6 @@ namespace XMLViewer
         std::vector<int> ChildTags;
     };
 
-    ///// <summary>
-    ///// Class OtherTag (vector used instead of map based since don't need to be able to change the tags after load them).
-    ///// </summary>
-    //class OtherTag
-    //{
-    //    std::string EntryTagName;
-    //    std::string Desc;
-    //    /// <summary>
-    //    /// The argument fields of the xml tag
-    //    /// </summary>
-    //    ArgList ArgFields;
-    //    /// <summary>
-    //    /// The primary tags
-    //    /// </summary>
-    //    std::vector<OtherTagMember> PrimaryTags;
-    //    /// <summary>
-    //    /// Child tags of PrimaryTags and other InnerTags
-    //    /// </summary>
-    //    std::vector<OtherTagMember> InnerTags;
-    //};
-
     /// <summary>
     /// Store entry level tags with this
     /// </summary>
@@ -101,7 +80,7 @@ namespace XMLViewer
         }
 
         /// <summary>
-        /// Loads the XML.
+        /// Loads the XML in read-only format(deleting a tag could break inner tag references in this format).
         /// </summary>
         /// <param name="FilePath">The file path.</param>
         /// <returns>bool</returns>
