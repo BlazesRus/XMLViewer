@@ -48,7 +48,7 @@ namespace XMLViewer
     /// Implements the <see cref="std::vector{TagElement}" />
     /// </summary>
     /// <seealso cref="std::vector{TagElement}" />
-    class TagDepthTree : std::vector<TagElement>
+    class TagDepthTree : public std::vector<TagElement>
     {
     public:
         /// <summary>
