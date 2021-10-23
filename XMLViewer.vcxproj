@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="VS2022Debug|x64">
+      <Configuration>VS2022Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="VS2022Release|x64">
+      <Configuration>VS2022Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="VS2022Debug|Win32">
+      <Configuration>VS2022Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="VS2022Release|Win32">
+      <Configuration>VS2022Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <ProjectGuid>{C9A3F0B8-4E38-4F62-9D6C-186053FCCE6E}</ProjectGuid>
+    <Keyword>MFCProj</Keyword>
+    <RootNamespace>XMLViewer</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ConfigurationType>Application</ConfigurationType>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Label="UserMacros">
+    <BlazesSharedCode Condition="Exists('C:\UserFiles\GitHub\BlazesRusSharedCode\SharedCode')">C:/UserFiles/GitHub/BlazesRusSharedCode/SharedCode/</BlazesSharedCode>
+    <BlazesSharedCode Condition="!Exists('C:\UserFiles\GitHub\BlazesRusSharedCode\SharedCode')">..</BlazesSharedCode>
+    <MFCApp Condition="'$(BlazesSharedCode)'!='..'">$(BlazesSharedCode)MFCApp/</MFCApp>
+    <MFCApp Condition="'$(BlazesSharedCode)'=='..'">../MFCApp/</MFCApp>
+    <MfcPCHHeader>$(MFCApp)MFCpch.h</MfcPCHHeader>
+    <AppDir Condition="'$(BlazesSharedCode)'!='..'">$(BlazesSharedCode)MFCTextViewer/</AppDir>
+    <AppDir Condition="'$(BlazesSharedCode)'=='..'"></AppDir>
+    <MfcPCHOutput>$(AppDir)$(Configuration)/MFCpch.pch</MfcPCHOutput>
+    <RawMfcPCH>$(MfcPCHHeader)</RawMfcPCH>
+    <!--Need to force absolute path of MfcPCHHeader and MfcPCHHeader so that files in other directories can use the header;Otherwise causes C1010 error inside $(BlazesSharedCode) and App files-->
+    <MFC>C:\UserFiles\GitHub\MFC</MFC>
+    <BoostDir>C:/UserFiles/ProgrammingLibraries/BoostLib/</BoostDir>
+    <ParallelMap>C:/UserFiles/GitHub/Parallel-Hashmap/</ParallelMap>
+  </PropertyGroup>
+  <PropertyGroup Label="GlobalsPart2">
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules />
+    <CodeAnalysisRuleAssemblies />
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(BlazesSharedCode);$(MFCApp);</IncludePath>
+    <SourcePath>$(VC_SourcePath);$(MFCApp);</SourcePath>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+    <PlatformToolset>v142</PlatformToolset>
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Debug' Or '$(Configuration)'=='VS2022Debug'" Label="Configuration">
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Release' Or '$(Configuration)'=='VS2022Release'" Label="Release Configuration">
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='VS2022Debug' Or '$(Configuration)'=='VS2022Release'" Label="Configuration">
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)/Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)/Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ItemDefinitionGroup Label="Windows Item Definition Group">
+    <!-- Condition="'$(Platform)'=='Win32' Or '$(Platform)'=='x64'"-->
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking Condition="'$(Configuration)'=='Release' Or '$(Configuration)'=='VS2022Release'">true</FunctionLevelLinking>
+      <IntrinsicFunctions Condition="'$(Configuration)'=='Release' Or '$(Configuration)'=='VS2022Release'">true</IntrinsicFunctions>
+      <PreprocessorDefinitions Condition="'$(Configuration)'=='Debug' Or '$(Configuration)'=='VS2022Debug'">MfcPCHFile=$(RawMfcPCH);MFCApp_UseIniTesterSettings;BlazesMFCApp_EnableOutputWindow;WIN32;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)'=='Release' Or '$(Configuration)'=='VS2022Release'">MfcPCHFile=$(RawMfcPCH);MFCApp_UseIniTesterSettings;BlazesMFCApp_EnableOutputWindow;NDEBUG;WIN32;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode Condition="'$(Configuration)'=='Release' Or '$(Configuration)'=='VS2022Release'">true</ConformanceMode>
+      <RuntimeLibrary Condition="'$(Configuration)'=='Debug' Or '$(Configuration)'=='VS2022Debug'">MultiThreadedDebugDLL</RuntimeLibrary>
+      <DebugInformationFormat Condition="'$(Configuration)'=='Debug' Or '$(Configuration)'=='VS2022Debug'">EditAndContinue</DebugInformationFormat>
+      <Optimization Condition="'$(Configuration)'=='Debug' Or '$(Configuration)'=='VS2022Debug'">Disabled</Optimization>
+      <Optimization Condition="'$(Configuration)'=='Release' Or '$(Configuration)'=='VS2022Release'">MaxSpeed</Optimization>
+      <PrecompiledHeader>Create</PrecompiledHeader>
+      <PrecompiledHeaderFile>AppPch.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>.\$(Configuration)\AppPch.pch</PrecompiledHeaderOutputFile>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <OmitFramePointers Condition="'$(Platform)'=='Win32'">true</OmitFramePointers>
+      <ProgramDataBaseFileName Condition="'$(Configuration)'=='Debug' Or '$(Configuration)'=='VS2022Debug'">.\Debug\</ProgramDataBaseFileName>
+      <ProgramDataBaseFileName Condition="'$(Configuration)'=='Release' Or '$(Configuration)'=='VS2022Release'">.\Release\</ProgramDataBaseFileName>
+    </ClCompile>
+    <Link>
+      <SubSystem Condition="'$(Platform)'=='Win32'">MachineX86</SubSystem>
+      <SubSystem Condition="'$(Platform)'=='x64'">Windows</SubSystem>
+      <EnableCOMDATFolding Condition="'$(Configuration)'=='Release' Or '$(Configuration)'=='VS2022Release'">true</EnableCOMDATFolding>
+      <OptimizeReferences Condition="'$(Configuration)'=='Release' Or '$(Configuration)'=='VS2022Release'">true</OptimizeReferences>
+      <GenerateDebugInformation Condition="'$(Configuration)'=='Debug' Or '$(Configuration)'=='VS2022Debug'">true</GenerateDebugInformation>
+      <GenerateDebugInformation Condition="'$(Configuration)'=='Release' Or '$(Configuration)'=='VS2022Release'">false</GenerateDebugInformation>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>true</ValidateAllParameters>
+      <PreprocessorDefinitions Condition="'$(Configuration)'=='Debug' Or '$(Configuration)'=='VS2022Debug'">BlazesMFCApp_EnableOutputWindow;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)'=='Release' Or '$(Configuration)'=='VS2022Release'">BlazesMFCApp_EnableOutputWindow;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <PreprocessorDefinitions Condition="'$(Configuration)'=='Debug' Or '$(Configuration)'=='VS2022Debug'">BlazesMFCApp_EnableOutputWindow;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)'=='Release' Or '$(Configuration)'=='VS2022Release'">BlazesMFCApp_EnableOutputWindow;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup Label="SharedCodeIncludes">
+    <ClInclude Include="../DLLAPI.h" />
+    <ClInclude Include="../OtherFunctions/MFCMacros.h" />
+    <ClInclude Include="../OtherFunctions/MFCMacrosV3.h" />
+    <ClInclude Include="../OtherFunctions/MFCBaseOneMacros.h" />
+    <ClInclude Include="../OtherFunctions/MFCBaseTwoMacros.h" />
+    <ClInclude Include="../OtherFunctions/MFCOneArgMacros.h" />
+    <ClInclude Include="../OtherFunctions/MFCTwoArgMacros.h" />
+    <ClInclude Include="../tsl/ordered_hash.h" />
+    <ClInclude Include="../tsl/ordered_map.h" />
+    <ClInclude Include="../Databases/ArgList.h" />
+    <ClInclude Include="../Databases/ArgStringList.h" />
+    <ClInclude Include="../Databases/CustomDictionary.h" />
+    <ClInclude Include="../Databases/CustomOrderedDictionary.h" />
+    <ClInclude Include="../VariableLists/VariableList.h" />
+    <ClInclude Include="../VariableLists/StringVectorList.h" />
+    <ClCompile Include="../VariableLists/StringVectorList.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClInclude Include="../VariableLists/VariableTypeLists.h" />
+    <ClCompile Include="../VariableLists/VariableTypeLists.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClInclude Include="../OtherFunctions/StringFunctions.h" />
+    <ClCompile Include="../OtherFunctions/StringFunctions.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClInclude Include="../OtherFunctions/VariableConversionFunctions.h" />
+    <ClCompile Include="../OtherFunctions/VariableConversionFunctions.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClInclude Include="../OtherFunctions/FileOps.hpp" />
+    <ClInclude Include="../AltNum/MediumDec.h" />
+    <ClInclude Include="../Databases/UIntDic.h">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="../Databases/ArgList.h" />
+    <ClInclude Include="../Databases/ArgStringList.h" />
+    <ClInclude Include="../Databases/TagDepthTree.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <BuildMacro Include="RawMfcPCH">
+      <Value>$(RawMfcPCH)</Value>
+    </BuildMacro>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="$(MFCApp)/AboutDlg.hpp" />
+    <ClInclude Include="$(MFCApp)/AppSettings.h" />
+    <ClInclude Include="$(MFCApp)/MFCFramework.h" />
+    <ClInclude Include="$(MFCApp)/MFCDoc.h" />
+    <ClInclude Include="$(MFCApp)/MFCFrame.h" />
+    <ClInclude Include="$(MFCApp)/MFCSubFrame.h">
+    </ClInclude>
+    <ClInclude Include="$(MFCApp)/MFCView.h" />
+    <ClInclude Include="$(MFCApp)/MFCRes.h" />
+    <ClInclude Include="$(MFCApp)/targetver.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="$(MFCApp)/MFCpch.h" />
+    <ClCompile Include="$(MFCApp)/MFCpch.cpp">
+      <PrecompiledHeader>Create</PrecompiledHeader>
+      <PrecompiledHeaderFile>$(MfcPCHHeader)</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(MfcPCHOutput)</PrecompiledHeaderOutputFile>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="$(MFCApp)/MFCDoc.cpp">
+	  <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>$(MfcPCHHeader)</PrecompiledHeaderFile>
+    </ClCompile>
+    <ClCompile Include="$(MFCApp)/MFCFrame.cpp">
+	  <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>$(MfcPCHHeader)</PrecompiledHeaderFile>
+    </ClCompile>
+    <ClCompile Include="$(MFCApp)/MFCSubFrame.cpp">
+	  <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>$(MfcPCHHeader)</PrecompiledHeaderFile>
+    </ClCompile>
+    <ClCompile Include="$(MFCApp)/MFCView.cpp">
+	  <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>$(MfcPCHHeader)</PrecompiledHeaderFile>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="$(MFCApp)/MFCApp.h" />
+    <ClCompile Include="$(MFCApp)/MFCApp.cpp">
+	  <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>$(MfcPCHHeader)</PrecompiledHeaderFile>
+    </ClCompile>
+    <ClInclude Include="$(MFCApp)/OutputWnd.h">
+      <ExcludedFromBuild>false</ExcludedFromBuild>
+    </ClInclude>
+    <ClCompile Include="$(MFCApp)/OutputWnd.cpp">
+	  <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>$(MfcPCHHeader)</PrecompiledHeaderFile>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AppPch.h" />
+    <ClCompile Include="AppPch.cpp">
+      <PrecompiledHeader>Create</PrecompiledHeader>
+      <PrecompiledHeaderFile>AppPch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <ClInclude Include="AppRes.h" />
+    <ClCompile Include="AppProcessor.cpp" />
+    <ClCompile Include="XMLView.cpp" />
+    <ClInclude Include="AppProcessor.h" />
+    <ClInclude Include="XMLView.h" />
+    <ClInclude Include="XMLLoader.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="App.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\App.rc2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\App.ico" />
+    <Image Include="res\MFCDoc.ico" />
+    <Image Include="res\Toolbar.bmp" />
+    <Image Include="res\output_wnd.ico">
+    </Image>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
