@@ -7,7 +7,7 @@
 #pragma once
 
 #include "../MFCApp/MFCView.h"
-//#include "../VariableLists/StringVectorList.h"
+#include "XMLLoader.hpp"
 
 class XMLView : public MFCView
 {

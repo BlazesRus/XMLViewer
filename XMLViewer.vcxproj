@@ -17,22 +17,6 @@
       <Configuration>Release</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="VS2022Debug|x64">
-      <Configuration>VS2022Debug</Configuration>
-      <Platform>x64</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="VS2022Release|x64">
-      <Configuration>VS2022Release</Configuration>
-      <Platform>x64</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="VS2022Debug|Win32">
-      <Configuration>VS2022Debug</Configuration>
-      <Platform>Win32</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="VS2022Release|Win32">
-      <Configuration>VS2022Release</Configuration>
-      <Platform>Win32</Platform>
-    </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
@@ -78,9 +62,6 @@
     <UseDebugLibraries>false</UseDebugLibraries>
     <WholeProgramOptimization>true</WholeProgramOptimization>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)'=='VS2022Debug' Or '$(Configuration)'=='VS2022Release'" Label="Configuration">
-    <PlatformToolset>v143</PlatformToolset>
-  </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
@@ -95,8 +76,8 @@
       <WarningLevel>Level3</WarningLevel>
       <FunctionLevelLinking Condition="'$(Configuration)'=='Release' Or '$(Configuration)'=='VS2022Release'">true</FunctionLevelLinking>
       <IntrinsicFunctions Condition="'$(Configuration)'=='Release' Or '$(Configuration)'=='VS2022Release'">true</IntrinsicFunctions>
-      <PreprocessorDefinitions Condition="'$(Configuration)'=='Debug' Or '$(Configuration)'=='VS2022Debug'">MfcPCHFile=$(RawMfcPCH);MFCApp_UseIniTesterSettings;BlazesMFCApp_EnableOutputWindow;WIN32;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <PreprocessorDefinitions Condition="'$(Configuration)'=='Release' Or '$(Configuration)'=='VS2022Release'">MfcPCHFile=$(RawMfcPCH);MFCApp_UseIniTesterSettings;BlazesMFCApp_EnableOutputWindow;NDEBUG;WIN32;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)'=='Debug' Or '$(Configuration)'=='VS2022Debug'">BlazesMFCApp_UseDefaultAppSettings;MfcPCHFile=$(RawMfcPCH);MFCApp_UseIniTesterSettings;BlazesMFCApp_EnableOutputWindow;WIN32;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)'=='Release' Or '$(Configuration)'=='VS2022Release'">BlazesMFCApp_UseDefaultAppSettings;MfcPCHFile=$(RawMfcPCH);MFCApp_UseIniTesterSettings;BlazesMFCApp_EnableOutputWindow;NDEBUG;WIN32;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode Condition="'$(Configuration)'=='Release' Or '$(Configuration)'=='VS2022Release'">true</ConformanceMode>
       <RuntimeLibrary Condition="'$(Configuration)'=='Debug' Or '$(Configuration)'=='VS2022Debug'">MultiThreadedDebugDLL</RuntimeLibrary>

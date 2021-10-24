@@ -7,16 +7,16 @@
 #pragma once
 
 #include "../MFCApp/MFCApp.h"
-#include "TextView.h"
+#include "XMLView.h"
 
 #include "../OtherFunctions/MFCMacrosV3.h"
 #include "../OtherFunctions/MFCBaseTwoMacros.h"
 
-#include "AppSettings.h"
+//#include "AppSettings.h"
 
-class AppProcessor : public MFCApp<TextView, AppSettings>
+class AppProcessor : public MFCApp<XMLView>//, AppSettings>
 {
-    MFC_RuntimeExtPart01Base02(AppProcessor, MFCApp, TextView, AppSettings)
+    MFC_RuntimeExtPart01Base01(AppProcessor, MFCApp, XMLView)//, AppSettings)
     //Any message map messages here
     MFC_RuntimeExtPart02()
     MFC_RuntimeExtClassName(AppProcessor)
